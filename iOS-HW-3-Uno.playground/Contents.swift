@@ -15,6 +15,7 @@ import UIKit
 //: ![Uno Deck](deck.jpg)
 
 
+
 /*:
  ### المطلوب:
 #### الجزء الأول:
@@ -88,6 +89,53 @@ var wild_Draw = UIImage(named: "Wild_Draw.png")
 /// قم بإنشاء الستركت هنا
 
 // struct ...
+
+struct Card {
+    var color: String?
+    var number: Int?
+    var actions : String?
+    var blackActions: String?
+    
+    func imageName()->String{
+        return "\(color)_\(number).png"
+                             }
+
+}
+
+var cards: [Card] = []
+let colors = [ "Green", "Red", "Blue", "Yellow"]
+let actions = ["Draw", "Reverse", "Skip"]
+let blackActions = ["Wild_Draw","Wild"]
+for color in colors {
+    cards.append(Card(color: color, number: 0))
+    for i in 1...9{
+        cards.append(Card(color: color, number: i)) }
+        for action in actions {
+            cards.append(Card(color:color, actions: action))
+        }
+}
+for i in 1...4 {
+           for blackAction in blackActions {
+               cards.append(Card( blackActions: blackAction))
+           }
+}
+
+ 
+let randomCard = cards.randomElement()!
+let randomCardImage = UIImage(named: randomCard.imageName())
+
+
+let cardImages = cards.map{UIImage(named: $0.imageName())}
+randomCardImage
+cardImages
+   
+    
+        
+
+
+
+  
+
 
 
 
