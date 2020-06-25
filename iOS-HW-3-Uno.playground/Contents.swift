@@ -108,19 +108,19 @@ let actions = ["Draw", "Reverse", "Skip"]
 let blackActions = ["Wild_Draw","Wild"]
 for color in colors {
     cards.append(Card(color: color, number: 0))
+    
     for i in 1...9{
         cards.append(Card(color: color, number: i)) }
         for action in actions {
             cards.append(Card(color:color, actions: action))
         }
-}
-for i in 1...4 {
+for _ in 1...4 {
            for blackAction in blackActions {
                cards.append(Card( blackActions: blackAction))
            }
 }
 
- 
+}
 let randomCard = cards.randomElement()!
 let randomCardImage = UIImage(named: randomCard.imageName())
 
@@ -128,7 +128,7 @@ let randomCardImage = UIImage(named: randomCard.imageName())
 let cardImages = cards.map{UIImage(named: $0.imageName())}
 randomCardImage
 cardImages
-   
+
     
         
 
@@ -150,4 +150,4 @@ cardImages
 //
 //let cardImages = cards.map{UIImage(named: $0.imageName())}
 //randomCardImage
-//cardImages
+//cardImage
